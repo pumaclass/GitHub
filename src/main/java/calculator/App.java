@@ -10,7 +10,7 @@ public class App {
         Scanner sc = new Scanner(System.in); // 스캐너 객체 생성
         String reStart = ""; // while와 연동할 문자열 생성
         int[] intArray = new int[10]; //배열 변수 생성
-        int index = 0;
+        ArrayList<Integer> intList = new ArrayList<Integer>();
 
         do { // while와 연동 될 do로 시작
             System.out.print("첫 번째 숫자를 입력하세요: ");
@@ -40,22 +40,40 @@ public class App {
                     System.out.println("잘못된 연산입니다.");
                     continue;
             }
-            for(int i = 0 ; i < intArray.length -1 ; i++){
-                intArray[i] = intArray[i+1];
-            }
-            intArray[intArray.length - 1] = result;
 
-            System.out.println("지금까지의 계산 결과업니다.");
-            for(int i=0; i < intArray.length; i++){
-                System.out.println(intArray[i]);
+            System.out.println("계산결과 : " + result);
+//            for(int i = 0 ; i < intArray.length -1 ; i++){
+//                intArray[i] = intArray[i+1];
+//            }
+//            intArray[intArray.length - 1] = result;
+
+//            System.out.println("지금까지의 계산 결과업니다.");
+//            for(int i=0; i < intArray.length; i++){
+//                System.out.println(intArray[i]);
+
+            // }
+
+            intList.add(result);
+                    for(int j=0 ; j<intList.size();j++);
+
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+            reStart = sc.next();
+
+            if(reStart.equals("remove")){
+                System.out.println("제일 처음 계산한 값이 삭제되었습니다.");
+                intList.remove(0);
             }
+            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+            reStart = sc.next();
+            if(reStart.equals("inquiry")){
+            for(Integer data:intList) {
+                System.out.println(data);
+            }
+            }
+
             System.out.println("더 계산하시겠습니까? " + "(restart 입력시 재시작, exit 입력시 프로그램 종료.)");
-            reStart = sc.next(); // 미리 생성 된 문자열에 종료 관련 인풋갑 출력
+            reStart = sc.next(); // 미리 생성 된 문자열에 종료 관련 인풋값 출력
         }while (!reStart.equals("exit")); // 반복문 종료 및 exit를 작성하면 프로그램이 종료되는 행동 정의
-
-
-
-
 
     }
 }
