@@ -1,12 +1,13 @@
 package calculator;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Calculator {
-    ArrayList<Integer> arrayList;
+    private List<Double> results;
 
     public Calculator() {
-        arrayList = new ArrayList<Integer>();
+        this.results = new ArrayList<>();
     }
 
     public double calculate(int num1, int num2, char operator) throws ArithmeticException, IllegalArgumentException {
@@ -34,10 +35,16 @@ public class Calculator {
             default:
                 throw new IllegalArgumentException("연산자가 잘못되었습니다." + operator);
         }
-        arrayList.add((int) result);
-
+        results.add(result);
         return result;
-
     }
+    public void removeFirstResult(){
+        if(!results.isEmpty()){
+            results.remove(0);
 
+        }
+    }
+    public List<Double> getResults() {
+        return results;
+    }
 }
