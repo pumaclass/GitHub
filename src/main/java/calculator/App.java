@@ -8,6 +8,7 @@ public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in); // 스캐너 객체 생성
         Calculator calculator = new Calculator();
+        CircleCalculator circleCalculator = new CircleCalculator();
         String restart;
         try {
             do { // while와 연동 될 do로 시작
@@ -68,9 +69,9 @@ public class App {
                     }
                 }else if(choice==2){
                     System.out.println("반지름의 넓이를 입력하세요.");
-                    Calculator.Circle.radius = sc.nextInt();
-                    System.out.println("반지름 " + Calculator.Circle.radius);
-                    System.out.println("원의 지름" + Calculator.Circle.getArea());
+                    CircleCalculator.radius = sc.nextInt();
+                    System.out.println("반지름 " + CircleCalculator.radius);
+                    System.out.println("원의 지름" + CircleCalculator.getArea());
                 }
 
                 System.out.println("더 계산하시겠습니까? " + "(restart 입력시 재시작, exit 입력시 프로그램 종료.)");
