@@ -34,8 +34,8 @@ public class Calculator extends ArithmeticCalculator {
 //            default:
 //                throw new IllegalArgumentException("연산자가 잘못되었습니다." + operator); // 그외 연산 예와처리
 //        }
-        public void addResult(double result){
-        results.add(result); // 결과값 Array에 할당
+        public void ar(double result){
+        results.add(result); // 결과값 ArrayList에 할당
 
     }
     public void removeFirstResult(){ // 결과에서 첫번째 값 삭제 매서드
