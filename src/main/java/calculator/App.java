@@ -53,14 +53,15 @@ public class App {
 
                 // }
                 System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
-                restart = sc.next();
+                restart = sc.nextLine();
+                sc.nextLine();
                 if (restart.equals("remove")) {
                     System.out.println("제일 처음 계산한 값이 삭제되었습니다.");
                     calculator.removeFirstResult();
                 }
 
                 System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
-                restart = sc.next();
+                restart = sc.nextLine();
                 if (restart.equals("inquiry")) {
                     List<Double> results = calculator.getResults();
                     for (Double data : results) {
@@ -74,8 +75,8 @@ public class App {
                     System.out.println("원의 지름" + CircleCalculator.getArea());
                 }
 
-                System.out.println("더 계산하시겠습니까? " + "(restart 입력시 재시작, exit 입력시 프로그램 종료.)");
-                restart = sc.next(); // 미리 생성 된 문자열에 종료 관련 인풋값 출력
+                System.out.println("더 계산하시겠습니까? " + "(exit 입력시 프로그램 종료.)");
+                restart = sc.nextLine(); // 미리 생성 된 문자열에 종료 관련 인풋값 출력
             } while (!restart.equals("exit")); // 반복문 종료 및 exit를 작성하면 프로그램이 종료되는 행동 정의
         } catch (ArithmeticException | IllegalArgumentException e){
             System.out.println("연산에러 발생 : " + e.getMessage());
