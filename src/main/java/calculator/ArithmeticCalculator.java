@@ -25,6 +25,12 @@ public class ArithmeticCalculator{
                 result = multiplyOperator.calculate(num1,num2);
                 break;
 
+            case '%':
+                ModOperator modOperator = new ModOperator();
+                result = modOperator.calculate(num1,num2);
+                break;
+
+
             case '/':
                 if (num2 == 0) {
                     throw new ArithmeticException("0으로 나눌 수 없습니다."); // 0으로 나눌경우 예외처리
