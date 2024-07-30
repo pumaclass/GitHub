@@ -10,19 +10,20 @@ public class App {
         Calculator calculator = new Calculator();
         CircleCalculator circleCalculator = new CircleCalculator();
         String restart;
+
         try {
             do { // while와 연동 될 do로 시작
                 System.out.println("1.사칙연산 수행하기(1입력), " + "2. 원의 넓이 구하기(2입력)");
                 int choice = sc.nextInt();
-                if(choice == 1){
-                System.out.print("첫 번째 숫자를 입력하세요: ");
-                int num1 = sc.nextInt(); // 인풋값을 받을 num1 생성
-                System.out.print("두 번째 숫자를 입력하세요: ");
-                int num2 = sc.nextInt(); // 인풋값을 받을 num2 생성
-                System.out.print("사칙 연산 기호를 입력하세요.");
-                char operator = sc.next().charAt(0); // 사칙연산 인풋을 받을 char 문자열 생성
+                if (choice == 1) {
+                    System.out.print("첫 번째 숫자를 입력하세요: ");
+                    int num1 = sc.nextInt(); // 인풋값을 받을 num1 생성
+                    System.out.print("두 번째 숫자를 입력하세요: ");
+                    int num2 = sc.nextInt(); // 인풋값을 받을 num2 생성
+                    System.out.print("사칙 연산 기호를 입력하세요.");
+                    char operator = sc.next().charAt(0); // 사칙연산 인풋을 받을 char 문자열 생성
 
-                double result = calculator.calculate(num1, num2, operator);
+                    double result = calculator.calculate(num1, num2, operator);
 //            switch (operator) { // switch 피연산자 변수 생성
 //                case '+':
 //                    result = (num1 + num2); // 덧셈 변수 생성
@@ -41,7 +42,8 @@ public class App {
 //                    System.out.println("잘못된 연산입니다.");
 //                    continue;
 //
-                System.out.println("계산결과 : " + result);
+                    System.out.println("계산결과 : " + result);
+                    calculator.addResult(result); // 결과값을 List에 저장
 //            for(int i = 0 ; i < intArray.length -1 ; i++){
 //                intArray[i] = intArray[i+1];
 //            }
@@ -51,24 +53,24 @@ public class App {
 //            for(int i=0; i < intArray.length; i++){
 //                System.out.println(intArray[i]);
 
-                // }
-                System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
-                restart = sc.nextLine();
-                sc.nextLine();
-                if (restart.equals("remove")) {
-                    System.out.println("제일 처음 계산한 값이 삭제되었습니다.");
-                    calculator.removeFirstResult();
-                }
+                    // }
+                    System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+                    sc.nextLine();
+                    restart = sc.nextLine();
+                    if (restart.equals("remove")) {
+                        System.out.println("제일 처음 계산한 값이 삭제되었습니다.");
+                        calculator.removeFirstResult();
+                    }
 
-                System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
-                restart = sc.nextLine();
-                if (restart.equals("inquiry")) {
-                    List<Double> results = calculator.getResults();
-                    for (Double data : results) {
-                        System.out.println(data);
+                    System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+                    restart = sc.nextLine();
+                    if (restart.equals("inquiry")) {
+                        List<Double> results = calculator.getResults();
+                        for (Double data : results) {
+                            System.out.println(data);
+                        }
                     }
-                    }
-                }else if(choice==2){
+                } else if (choice == 2) {
                     System.out.println("반지름의 넓이를 입력하세요.");
                     CircleCalculator.radius = sc.nextInt();
                     System.out.println("반지름 " + CircleCalculator.radius);
@@ -78,9 +80,9 @@ public class App {
                 System.out.println("더 계산하시겠습니까? " + "(exit 입력시 프로그램 종료.)");
                 restart = sc.nextLine(); // 미리 생성 된 문자열에 종료 관련 인풋값 출력
             } while (!restart.equals("exit")); // 반복문 종료 및 exit를 작성하면 프로그램이 종료되는 행동 정의
-        } catch (ArithmeticException | IllegalArgumentException e){
+        } catch (ArithmeticException | IllegalArgumentException e) {
             System.out.println("연산에러 발생 : " + e.getMessage());
-        }finally {
+        } finally {
             sc.close();
         }
 

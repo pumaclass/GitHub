@@ -9,7 +9,8 @@ public class Calculator extends ArithmeticCalculator {
     public Calculator() {
         this.results = new ArrayList<>(); // 결과(배열) 초기화 매서드
     }
-//    public double calculate(int num1, int num2, char operator) throws ArithmeticException, IllegalArgumentException {
+
+    //    public double calculate(int num1, int num2, char operator) throws ArithmeticException, IllegalArgumentException {
 //        double result = 0;
 //
 //        switch (operator) { // 사칙연산 기능 구형
@@ -34,21 +35,26 @@ public class Calculator extends ArithmeticCalculator {
 //            default:
 //                throw new IllegalArgumentException("연산자가 잘못되었습니다." + operator); // 그외 연산 예와처리
 //        }
-        public void ar(double result){
+    public void addResult(double result) {
         results.add(result); // 결과값 ArrayList에 할당
 
     }
-    public void removeFirstResult(){ // 결과에서 첫번째 값 삭제 매서드
-        if(!results.isEmpty()){
+
+    public void removeFirstResult() { // 결과에서 첫번째 값 삭제 매서드
+        if (!results.isEmpty()) {
             results.remove(0);
 
         }
     }
+
     public List<Double> getResults() { // 배열 조회 매서드
         return results;
 
     }
-    public void setResults(List<Double>results){
-        this.results=results;
+
+    public void setResults(List<Double> results) {
+        this.results = results;
     }
+
+
 }
